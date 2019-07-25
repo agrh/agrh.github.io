@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;default&quot;]"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Markdown入门 | Dong Fan's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Markdown入门</h1><a id="logo" href="/.">Dong Fan's Blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Markdown入门</h1><div class="post-meta">Jul 24, 2019<span> | </span><span class="category"><a href="/categories/2019/">2019</a></span></div><div class="post-content"><p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。其语法简洁明了、学习容易，而且功能比纯文本更强，因此非常适合写博客。在Github中，系统默认使用Markdown编写说明文档，并且以“README.md”的文件名保存在根目录下面。</p>
+<h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><p>代码：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*斜体*</span>或<span class="emphasis">_斜体_</span></span><br><span class="line">*<span class="strong">*粗体*</span><span class="strong">*</span></span><br><span class="line"><span class="strong">*</span>*<span class="strong">*加粗斜体*</span>*<span class="strong">*</span></span><br><span class="line"><span class="strong">~~删除线~~</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p><em>这是一段斜体</em><br><strong>这是一段粗体</strong><br><strong><em>这是一段加粗斜体</em></strong><br><del>这是一段删除线</del></p>
+<h3 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h3><p>代码：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>Markdown 支持两种形式的链接语法： 行内式和参考式两种形式，行内式一般使用较多。</p>
+<ul>
+<li><p>行内式。 []里写链接文字，()里写链接地址,()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。<a href="链接地址" title="链接标题">链接文字</a>这样的形式。链接地址与链接标题前有一个空格。<br>代码： </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">欢迎来到[<span class="string">Dong Fan's Blog</span>](<span class="link">http://agrh.github.io</span>)</span><br><span class="line">欢迎来到[<span class="string">Dong Fan's Blog</span>](<span class="link">http://agrh.github.io "Dong Fan's Blog"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示效果<br>欢迎来到<a href="http://agrh.github.io">Dong Fan’s Blog</a><br>欢迎来到<a href="http://agrh.github.io" title="Dong Fan&#39;s Blog">Dong Fan’s Blog</a></p>
+</li>
+<li><p>参考式。参考式超链接一般用在学术论文上面，或者另一种情况，如果某一个链接在文章中多处使用，那么使用引用的方式创建链接将非常好，它可以让你对链接进行统一的管理。<br>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Some websites[<span class="string">Google</span>][<span class="symbol">1</span>]、[<span class="string">Facebook</span>][<span class="symbol">2</span>] and [<span class="string">my blog</span>][<span class="symbol">3</span>]</span><br><span class="line">[<span class="symbol">1</span>]:<span class="link">http://www.google.com</span></span><br><span class="line">[<span class="symbol">2</span>]:<span class="link">https://facebook.com</span></span><br><span class="line">[<span class="symbol">3</span>]:<span class="link">http://agrh.github.io</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示效果<br>Some websites<a href="http://www.google.com" target="_blank" rel="noopener">Google</a>、<a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a> and <a href="http://agrh.github.io">my blog</a></p>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>一种是利用缩进(Tab), 另一种是利用<code>dome</code>符号（在ESC键下方）包裹代码。</p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用需要在被引用的文本前加上&gt;符号。<br>代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> 这是一个有两段文字的引用</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 无意义的占行文字1.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 无意义的占行文字2.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 无意义的占行文字3.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 无意义的占行文字4.</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<blockquote>
+<p>这是一个有两段文字的引用<br>无意义的占行文字1.<br>无意义的占行文字2.</p>
+<p>无意义的占行文字3.<br>无意义的占行文字4.</p>
+</blockquote>
+<h3 id="引用的多层嵌套"><a href="#引用的多层嵌套" class="headerlink" title="引用的多层嵌套"></a>引用的多层嵌套</h3><p>区块引用可以嵌套（例如：引用内的引用），只要根据层次加上不同数量的 &gt; ：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> How to use Markdwon ？ - name1</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt; I don<span class="string">'t know！ - name2</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; Where should I learn this knowledge？ - name1</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<blockquote>
+<p>How to use Markdwon ？ - name1</p>
+<blockquote>
+<p>I don’t know！ - name2</p>
+<blockquote>
+<p>Where should I learn this knowledge？ - name1</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h3><p>插入语法：<code>![图片Alt](图片地址 &quot;图片Title&quot;)</code><br>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">The first example Figure</span>](<span class="link">markdwon/fig1.png "Figure1"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<br><img src="/2019/07/24/markdown/fig1.png" alt="Figure caption"></p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>第一行为表头，第二行分隔表头和主体部分，第三行开始每一行为一个表格行。</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Table1 |<span class="string"> Top and side views of the proposed monolayers.：</span></span><br><span class="line"></span><br><span class="line"><span class="string">DLPs</span>|<span class="string">Vmax</span>|Vmin</span><br><span class="line">-|<span class="string">-</span>|<span class="string">-</span></span><br><span class="line"><span class="string">−0.13</span>|<span class="string">0.21</span>|<span class="string">0.76</span></span><br><span class="line"><span class="string">0.10</span>|<span class="string">0.65</span>|<span class="string">-0.76</span></span><br><span class="line"><span class="string">1.02</span>|<span class="string">0.22</span>|<span class="string">0.12</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p>Table1 | Top and side views of the proposed monolayers.：</p>
+<table>
+<thead>
+<tr>
+<th>DLPs</th>
+<th>Vmax</th>
+<th>Vmin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>−0.13</td>
+<td>0.21</td>
+<td>0.76</td>
+</tr>
+<tr>
+<td>0.10</td>
+<td>0.65</td>
+<td>-0.76</td>
+</tr>
+<tr>
+<td>1.02</td>
+<td>0.22</td>
+<td>0.12</td>
+</tr>
+</tbody></table>
+<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>可以再一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。也可以在星号或是减号中间插入空格。<br>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span><span class="bullet">* *</span></span><br><span class="line"><span class="emphasis">***</span></span><br><span class="line"><span class="strong">*****</span></span><br><span class="line"><span class="bullet">- </span>- -</span><br><span class="line">---------------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>显示效果:</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="http://www.google.com" target="_blank" rel="noopener">1</a> <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Markdown</a><br><a href="https://facebook.com" target="_blank" rel="noopener">2</a> <a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/markdown/md-tutorial.html</a><br><a href="http://agrh.github.io">3</a> <a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed</a></p>
+</div><div class="tags"><a href="/tags/CH/">CH</a><a href="/tags/Markdown/">Markdown</a></div><div class="post-nav"><a class="pre" href="/2019/07/25/linux/">Linux下常用命令</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NTU0Ni8yMjA1Nw=="><script>(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+   if (typeof LivereTower === 'function') { return; }
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://agrh.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2019/">2019</a><span class="category-list-count">3</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/CH/" style="font-size: 15px;">CH</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/VASP/" style="font-size: 15px;">VASP</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/25/linux/">Linux下常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/markdown/">Markdown入门</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://fandong.xyz/" title="About me" target="_blank">About me</a><ul></ul><a href="https://www.researchgate.net/" title="Researchgate" target="_blank">Researchgate</a><ul></ul><a href="https://pubs.acs.org/" title="ACS" target="_blank">ACS</a><ul></ul><a href="https://journals.aps.org/" title="APS" target="_blank">APS</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Dong Fan's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="http://fandong.xyz"> Dong Fan.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
