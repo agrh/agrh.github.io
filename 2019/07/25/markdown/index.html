@@ -13,12 +13,12 @@
 <li><p>行内式。 []里写链接文字，()里写链接地址,()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。<a href="链接地址" title="链接标题">链接文字</a>这样的形式。链接地址与链接标题前有一个空格。<br>代码： </p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">欢迎来到[<span class="string">Dong Fan's Blog</span>](<span class="link">http://agrh.github.io</span>)</span><br><span class="line">欢迎来到[<span class="string">Dong Fan's Blog</span>](<span class="link">http://agrh.github.io "Dong Fan's Blog"</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>显示效果<br>欢迎来到<a href="http://agrh.github.io" target="_blank" rel="noopener">Dong Fan’s Blog</a><br>欢迎来到<a href="http://agrh.github.io" title="Dong Fan&#39;s Blog" target="_blank" rel="noopener">Dong Fan’s Blog</a></p>
+<li><p>显示效果<br>欢迎来到<a href="http://agrh.github.io">Dong Fan’s Blog</a><br>欢迎来到<a href="http://agrh.github.io" title="Dong Fan&#39;s Blog">Dong Fan’s Blog</a></p>
 </li>
 <li><p>参考式。参考式超链接一般用在学术论文上面，或者另一种情况，如果某一个链接在文章中多处使用，那么使用引用的方式创建链接将非常好，它可以让你对链接进行统一的管理。<br>代码：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Some websites[<span class="string">Google</span>][<span class="symbol">1</span>]、[<span class="string">Facebook</span>][<span class="symbol">2</span>] and [<span class="string">my blog</span>][<span class="symbol">3</span>]</span><br><span class="line">[<span class="symbol">1</span>]:<span class="link">http://www.google.com</span></span><br><span class="line">[<span class="symbol">2</span>]:<span class="link">https://facebook.com</span></span><br><span class="line">[<span class="symbol">3</span>]:<span class="link">http://agrh.github.io</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>显示效果<br>Some websites<a href="http://www.google.com" target="_blank" rel="noopener">Google</a>、<a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a> and <a href="http://agrh.github.io" target="_blank" rel="noopener">my blog</a></p>
+<li><p>显示效果<br>Some websites<a href="http://www.google.com" target="_blank" rel="noopener">Google</a>、<a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a> and <a href="http://agrh.github.io">my blog</a></p>
 </li>
 </ul>
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用需要在被引用的文本前加上&gt;符号。<br>代码：</p>
@@ -43,9 +43,9 @@
 </blockquote>
 </blockquote>
 <h3 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h3><p>插入语法：<code>![图片Alt](图片地址 &quot;图片Title&quot;)</code><br>代码：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">The first example Figure</span>](<span class="link">fig1.png "Figure1"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">The first example Figure</span>](<span class="link">markdwon/fig1.png "Figure1"</span>)</span><br></pre></td></tr></table></figure>
 
-<p>显示效果：<br><img src="/.com//fig1.png" alt="The first example Figure"></p>
+<p>显示效果：<br><img src="/2019/07/25/markdown/fig1.png" alt="The first example Figure"></p>
 </div><div class="tags"><a href="/tags/CH/">CH</a><a href="/tags/Markdown/">Markdown</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NTU0Ni8yMjA1Nw=="><script>(function(d, s) {
    var j, e = d.getElementsByTagName(s)[0];
    if (typeof LivereTower === 'function') { return; }
