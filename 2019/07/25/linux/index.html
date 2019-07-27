@@ -10,13 +10,17 @@
 </li>
 <li><p><code>mv</code> 将文件和目录从一个目录移动到另一个目录。同时它还允许重命名文件。要移动一个文件，必须告诉mv文件在哪里，以及希望将其移动到哪里。在本例中我们从<code>/Users/dongfan/test</code>目录中将<code>file1</code>移动到<code>directory_1</code>目录中，并重命名为<code>test1</code>：<br><img src="/2019/07/25/linux/mv.png" alt></p>
 </li>
-<li><p><code>mkdir</code></p>
+<li><p><code>mkdir</code> 在文件系统中创建新的目录。必须将新目录的名称提供给mkdir。如果新目录不在当前目录中，则必须提供新目录的路径。例如在当前目录中创建两个名为“directory_2”和“directory_3”的新目录，请使用以下两个命令:<br><img src="/2019/07/25/linux/mkdir.png" alt></p>
 </li>
-<li><p><code>df</code></p>
+<li><p><code>df</code> 该命令显示安装在计算机文件系统上的大小、使用空间和可用空间。最有用的两个选项是-h(human)和-x(排除)选项。<code>-h</code>选项以Mb或Gb而不是字节显示大小。<br><img src="/2019/07/25/linux/df.png" alt></p>
 </li>
-<li><p><code>diff</code></p>
+<li><p><code>grep</code> 搜索包含搜索模式的行。在查看alias命令时，我们使用grep搜索另一个程序ps的输出。grep命令还可以搜索文件的内容。这里，我们在当前目录中的所有文本文件中搜索单词“This”。<br><img src="/2019/07/25/linux/grep.png" alt></p>
 </li>
-<li><p><code>echo</code></p>
+<li><p><code>head</code> 给出了文件前10行代码的清单。如果希望看到更少或更多行，请使用<code>-n</code> 选项。在本例中，我们使用head，默认值为10行。然后使用<code>head -n 3 test_head</code>命令只显示3行。<br><img src="/2019/07/25/linux/head.png" alt></p>
+</li>
+<li><p><code>diff</code> 该命令比较两个文本文件，并显示它们之间的差异。有许多选项可以根据您的需求定制显示。挺常用的命令，比如可以比较在VASP优化后<code>CONTCAR</code>和<code>POSCAR</code>文件的差异：<br><img src="/2019/07/25/linux/diff.png" alt></p>
+</li>
+<li><p><code>echo</code> 将文本字符串打印到终端中。例如下面的命令将在终端窗口上打印单词“A string of text”。同时<code>echo</code>命令可以显示环境变量的值，例如$USER、$HOME和$PATH环境变量。其中包含用户名、用户的主目录以及当用户在命令行上键入某些内容时为匹配命令而搜索的路径的值。<br><img src="/2019/07/25/linux/echo.png" alt></p>
 </li>
 <li><p><code>tail</code></p>
 </li>
@@ -27,8 +31,6 @@
 <li><p><code>find</code></p>
 </li>
 <li><p><code>kill</code></p>
-</li>
-<li><p><code>grep</code></p>
 </li>
 <li><p><code>head</code></p>
 </li>
@@ -76,4 +78,4 @@
    j.async = true;
    e.parentNode.insertBefore(j, e);
 })(document, 'script');
-</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://agrh.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2019/">2019</a><span class="category-list-count">3</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/CH/" style="font-size: 15px;">CH</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/VASP/" style="font-size: 15px;">VASP</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/25/linux/">Linux下常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/markdown/">Markdown入门</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://fandong.xyz/" title="About me" target="_blank">About me</a><ul></ul><a href="https://www.researchgate.net/profile/Dong_Fan5" title="Researchgate" target="_blank">Researchgate</a><ul></ul><a href="https://pubs.acs.org/" title="ACS" target="_blank">ACS</a><ul></ul><a href="https://journals.aps.org/" title="APS" target="_blank">APS</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Dong Fan's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="http://fandong.xyz"> Dong Fan.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://agrh.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2019/">2019</a><span class="category-list-count">3</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/CH/" style="font-size: 15px;">CH</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/VASP/" style="font-size: 15px;">VASP</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/25/linux/">Linux下常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/markdown/">Markdown入门</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://fandong.xyz/" title="About me" target="_blank">About me</a><ul></ul><a href="https://www.researchgate.net/profile/Dong_Fan5" title="Researchgate" target="_blank">Researchgate</a><ul></ul><a href="https://pubs.acs.org/" title="ACS" target="_blank">ACS</a><ul></ul><a href="https://journals.aps.org/" title="APS" target="_blank">APS</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Dong Fan's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="http://fandong.xyz"> Dong Fan.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
