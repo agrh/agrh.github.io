@@ -1,16 +1,299 @@
-<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;default&quot;]"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>VASP的INCAR参数详解 | Dong Fan's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">VASP的INCAR参数详解</h1><a id="logo" href="/.">Dong Fan's Blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">VASP的INCAR参数详解</h1><div class="post-meta">Jul 27, 2019<span> | </span><span class="category"><a href="/categories/Work/">Work</a></span></div><div class="post-content"><ul>
-<li>SYSTEM = Calculation for</li>
-<li>ISTART =      0    # job   : 0-new  1-cont  2-samecut</li>
-<li>ICHARG =      2    # charge: 1-file 2-atom 10-const</li>
-<li>ENCUT  = 200.00    # eV </li>
-<li>EDIFF  =   1E-04   # stopping-criterion for ELM      </li>
-<li>EDIFFG =   1E-02   # Default : EDIFFx10，stopping-criterion for IOM</li>
-<li>NSW    =   100     # number of steps for IOM</li>
-<li>IBRION = 2         </li>
-<li>SIGMA  =    0.4</li>
-<li>ISMEAR =  1  broad. in eV, -4-tet -1-fermi 0-gaus</li>
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;default&quot;]"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>INCAR parameter of VASP | Dong Fan's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">INCAR parameter of VASP</h1><a id="logo" href="/.">Dong Fan's Blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">INCAR parameter of VASP</h1><div class="post-meta">Jul 27, 2019<span> | </span><span class="category"><a href="/categories/Work/">Work</a></span></div><div class="post-content"><p><strong>1. The bold part is the common control parameters.</strong><br><strong>2. The annotations are all from the official manual of VASP.</strong></p>
+<h2 id="Startparameter-for-this-run"><a href="#Startparameter-for-this-run" class="headerlink" title="Startparameter for this run:"></a>Startparameter for this run:</h2><ul>
+<li><p><strong>SYSTEM =  Calculation for XXX</strong></p>
+</li>
+<li><p>NWRITE = 2 # write-flag &amp; timer</p>
+</li>
+<li><p><strong>PREC   = A</strong> # normal or accurate (medium, high low for compatibility)<br>Default: PREC=Normal<br>The PREC-flag determines the energy cutoff ENCUT, if (and only if) no value is given for ENCUT in the INCAR file. For PREC=Low, ENCUT will be set to the maximal ENMIN value found in the POTCAR files. For PREC=Medium and PREC=Accurate, ENCUT will be set to maximal ENMAX value found on the POTCAR file.<br><img src="/2019/07/27/incar/encut.png" alt></p>
+</li>
+<li><p><strong>ISTART = 0</strong> # job   : 0-new  1-cont  2-samecut<br>Default: ISTART    =    1    if WAVECAR exists, =    0    else</p>
+</li>
+<li><p><strong>ICHARG = 2</strong> # charge: 1-file 2-atom 10-const<br>Default: ICHARG    = 2 if ISTART=0, =    0    else</p>
+</li>
 </ul>
-</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>Dong Fan</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2019/07/27/incar/">http://agrh.github.io/2019/07/27/incar/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright, please indicate the source reproduced.</li></ul></div><br><div class="tags"><a href="/tags/CH/">CH</a><a href="/tags/VASP/">VASP</a></div><div class="post-nav"><a class="next" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NTU0Ni8yMjA1Nw=="><script>(function(d, s) {
+<table>
+<thead>
+<tr>
+<th>ISTART</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Calculate charge density from initial orbitals.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Take superposition of atomic charge densities</td>
+</tr>
+<tr>
+<td>11</td>
+<td>To obtain the eigenvalues (for band structure plots) or the DOS for a given charge density read from CHGCAR. The selfconsistent CHGCAR file must be determined beforehand doing by a fully selfconsistent calculation with a k-point grid spanning the entire Brillouin zone.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Non-selfconsistent calculations for a superposition of atomic charge densities.</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>ISPIN  = 1</strong> # spin polarized calculation?<br>Default:     ISPIN    =    1. For ISPIN=1 non spin polarized calculations are performed, whereas for ISPIN=2 spin polarized calculations are performed.</p>
+</li>
+<li><p><strong>LNONCOLLINEAR = F</strong> # non collinear calculations</p>
+</li>
+<li><p><strong>LSORBIT = F</strong> # spin-orbit coupling</p>
+</li>
+<li><p>METAGGA = F # non-selfconsistent MetaGGA calc.<br>METAGGA = MBJ The modified Becke-Johnson exchange potential in combination with L(S)DA-correlation yields band gaps with an accuracy similar to hybrid functional or GW methods, but computationally less expensive (comparable to standard DFT calculations).<br>To check whether a particular POTCAR contains this information, type:<code>grep kinetic POTCAR</code>,This should yield at least the following lines:</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kinetic energy density (<span class="name">partial</span>)</span><br><span class="line">kinetic energy-density</span><br><span class="line">mkinetic energy-density pseudized</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="Electronic-Relaxation-1"><a href="#Electronic-Relaxation-1" class="headerlink" title="Electronic Relaxation 1"></a>Electronic Relaxation 1</h2><ul>
+<li><p><strong>ENCUT  =  550.0</strong>  # cutoff, eV<br>Default: ENCUT    =    largest ENMAX from POTCAR-file</p>
+</li>
+<li><p><strong>EDIFF  =  1E-04</strong> # stopping-criterion for ELM<br>Specifies the global break condition for the electronic SC-loop.</p>
+</li>
+<li><p><strong>LREAL  =  F</strong> # real-space projection<br>Default: LREAL  =  F, projection done in reciprocal space</p>
+</li>
+</ul>
+<ul>
+<li>NLSPLINE = F # pline interpolate recip. space projectors</li>
+</ul>
+<h2 id="Ionic-relaxation"><a href="#Ionic-relaxation" class="headerlink" title="Ionic relaxation"></a>Ionic relaxation</h2><ul>
+<li><strong>EDIFFG = -.2E-01</strong> # stopping-criterion for IOM<br>Default: EDIFFG    =    EDIFF*10<br>EDIFFG defines the break condition for the ionic relaxation loop. <strong>If EDIFFG is negative, the relaxation will stop if all forces are smaller than |EDIFFG|. This is usually a more convenient setting.</strong></li>
+</ul>
+<ul>
+<li><strong>ISMEAR = 1; SIGMA    = 0.2</strong><br>Determines how the partial occupancies are set for each orbital.<br>If the cell is too large (or if you use only a single or two k-points) use ISMEAR=0 in combination with a small SIGMA=0.05.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ISMEAR</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>Fermi-smearing</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Method of Methfessel-Paxton order. The calculation of phonon frequencies. In metals always use ISMEAR=1 or ISMEAR=2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Gaussian smearing. Reasonable results in most cases. Insulators</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Tetrahedron method with Blöchl corrections (use a Gamma-centered k-mesh. The calculation of the total energy in bulk materials. A good account for the electronic DOS. Semiconductors or insulator</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>NSW    = 500</strong> # number of steps for IOM<br>Default: NSW = 0, sets the maximum number of ionic steps.</li>
+</ul>
+<ul>
+<li><strong>IBRION = 2</strong> # ionic relax: 0-MD 1-quasi-New 2-CG<br>Default: IBRION= -1    for NSW=0 or NSW=1, =    0    else</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>IBRION</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>molecular dynamics</td>
+</tr>
+<tr>
+<td>2</td>
+<td>for difficult relaxation problems</td>
+</tr>
+<tr>
+<td>3</td>
+<td>useful when starting from very bad initial guesses.</td>
+</tr>
+<tr>
+<td>5&amp;6</td>
+<td>finite differences to determine the second derivatives</td>
+</tr>
+<tr>
+<td>7&amp;8</td>
+<td>density functional perturbation theory to calculate the derivatives.</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>POTIM = 0.1</strong> # no default, must be set by user<br>In case IBRION=0 (MD) , POTIM specifies the time step in fs. For IBRION=1,2 or 3, POTIM serves as a scaling constant for the forces.</li>
+</ul>
+<ul>
+<li><p><strong>NFREE  = 1</strong> # steps in history (QN), initial steepest desc. (CG)</p>
+</li>
+<li><p><strong>ISIF   = 2</strong> # stress and relaxation<br>ISIF=0    if IBRION=0 (MD), =2    else<br>Controls whether the stress tensor is calculated. </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ISIF</th>
+<th>calculate</th>
+<th>calculate</th>
+<th>relax</th>
+<th>change</th>
+<th>change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>force</td>
+<td>stress tensor</td>
+<td>ions</td>
+<td>cell shape</td>
+<td>cell volume</td>
+</tr>
+<tr>
+<td>0</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>2</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>3</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>ISYM   = 2</strong> # 0-nonsym 1-usesym 2-fastsym<br>switch symmetry on (ISYM=1, 2 or 3) or off (ISYM=-1 or 0). For ISYM=2 a more efficient, memory conserving symmetrisation of the charge density is used</p>
+</li>
+<li><p><strong>TEBEG  = 0.0; TEEND  =   0.0</strong> temperature during run<br>TEBEG and TEEND control the temperature during an ab-initio molecular dynamics ru</p>
+</li>
+<li><p><strong>PSTRESS= 0.0</strong> # pullay stress<br>If the PSTRESS tag is specified VASP will add this stress to to stress tensor, and an energy (unit:kb).</p>
+</li>
+</ul>
+<h2 id="Electronic-relaxation-2-details"><a href="#Electronic-relaxation-2-details" class="headerlink" title="Electronic relaxation 2 (details)"></a>Electronic relaxation 2 (details)</h2><ul>
+<li><strong>ALGO  =     Normal</strong> #   algorithm<br>ALGO = Normal selects IALGO = 38 (blocked Davidson iteration scheme)<br>ALGO = Very_Fast selects IALGO = 48 (RMM-DIIS)<br>ALGO = Fast:blocked Davidson iteration+RMM-DIIS</li>
+</ul>
+<ul>
+<li>IMIX   =      4 # mixing-type and parameters</li>
+<li>AMIX     =   0.40;   BMIX     =  1.00</li>
+<li>AMIX_MAG =   1.60;   BMIX_MAG =  1.00</li>
+<li>AMIN     =   0.10</li>
+<li>WEIMIN = 0.0010 # energy-eigenvalue tresh-hold</li>
+<li>EBREAK =  0.24E-06 # absolut break condition</li>
+<li>DEPER  =   0.30  #   relativ break condition</li>
+<li>TIME   =   0.40  #   timestep for ELM</li>
+</ul>
+<h2 id="Write-flags"><a href="#Write-flags" class="headerlink" title="Write flags"></a>Write flags</h2><ul>
+<li><p><strong>LWAVE  =      F</strong>  #  write WAVECAR</p>
+</li>
+<li><p><strong>LCHARG =      F</strong>  #  write CHGCAR<br>Determine whether the orbitals (file WAVECAR), the charge densities (file CHGCAR and CHG) are written.</p>
+</li>
+<li><p><strong>LVTOT  =      F</strong>  #  write LOCPOT, total local potential<br>Determines whether the total local potential (file LOCPOT ) is written.</p>
+</li>
+<li><p><strong>LVHAR  =      F</strong>  #  write LOCPOT, Hartree potential only</p>
+</li>
+<li><p><strong>LELF   =      F</strong>  #  write electronic localiz. function (ELF)<br>Create an ELFCAR file or not. This file contains the so-called electron localization function.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>NCORE = 4 or NPAR = 4</strong><br>How many cores work on one orbital.</p>
+</li>
+<li><p><strong>LORBIT =      0</strong>  #  0 simple, 1 ext, 2 COOP (PROOUT)</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>LORBIT</th>
+<th>files written</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>DOSCAR</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DOSCAR and PROCAR file</td>
+</tr>
+<tr>
+<td>11</td>
+<td>DOSCAR and lm decomposed PROCAR file</td>
+</tr>
+<tr>
+<td>12</td>
+<td>DOSCAR and lm decomposed PROCAR file + phase factors</td>
+</tr>
+</tbody></table>
+<h2 id="Exchange-correlation-treatment"><a href="#Exchange-correlation-treatment" class="headerlink" title="Exchange correlation treatment:"></a>Exchange correlation treatment:</h2><ul>
+<li><strong>GGA     =    –</strong>  #  GGA type</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>GGA</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>91</td>
+<td>Perdew-Wang 91</td>
+</tr>
+<tr>
+<td>PE</td>
+<td>Perdew-Burke-Ernzerhof (standard PBE)</td>
+</tr>
+<tr>
+<td>RP</td>
+<td>revised Perdew-Burke-Ernzerhof (rPBE)</td>
+</tr>
+<tr>
+<td>AM</td>
+<td>AM05</td>
+</tr>
+<tr>
+<td>PS</td>
+<td>PBEsol</td>
+</tr>
+</tbody></table>
+<ul>
+<li>LHFCALC =     F  ##  Hartree Fock is set to</li>
+<li>LHFONE  =     F    Hartree Fock one center treatment</li>
+<li>AEXX    =    0.0000 # exact exchange contribution</li>
+</ul>
+<h2 id="Linear-response-parameters"><a href="#Linear-response-parameters" class="headerlink" title="Linear response parameters"></a>Linear response parameters</h2><ul>
+<li><p><strong>LEPSILON=     F</strong> #    determine dielectric tensor</p>
+</li>
+<li><p><strong>LRPA    =     F</strong> #    only Hartree local field effects (RPA)</p>
+</li>
+</ul>
+<h2 id="Orbital-magnetization-related"><a href="#Orbital-magnetization-related" class="headerlink" title="Orbital magnetization related:"></a>Orbital magnetization related:</h2><ul>
+<li>ORBITALMAG=     F  switch on orbital magnetization</li>
+<li>LCHIMAG   =     F  perturbation theory with respect to B field</li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] <a href="https://cms.mpi.univie.ac.at/vasp/guide/node91.html" target="_blank" rel="noopener">https://cms.mpi.univie.ac.at/vasp/guide/node91.html</a><br>[2] <a href="https://icme.hpc.msstate.edu/mediawiki/images/d/d2/LS14_VASP.pdf" target="_blank" rel="noopener">https://icme.hpc.msstate.edu/mediawiki/images/d/d2/LS14_VASP.pdf</a><br>[3] <a href="https://www.nersc.gov/assets/Uploads/VASP-tutorial-SurfaceScience.pdf" target="_blank" rel="noopener">https://www.nersc.gov/assets/Uploads/VASP-tutorial-SurfaceScience.pdf</a><br>[4] <a href="https://cms.mpi.univie.ac.at/wiki/index.php/Category:Examples" target="_blank" rel="noopener">https://cms.mpi.univie.ac.at/wiki/index.php/Category:Examples</a></p>
+</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>Dong Fan</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2019/07/27/incar/">http://agrh.github.io/2019/07/27/incar/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright, please indicate the source reproduced.</li></ul></div><br><div class="tags"><a href="/tags/EN/">EN</a><a href="/tags/VASP/">VASP</a></div><div class="post-nav"><a class="pre" href="/2019/07/28/band-diamond/">Calculate the band structure and density of states of diamond with the VASP code</a><a class="next" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NTU0Ni8yMjA1Nw=="><script>(function(d, s) {
    var j, e = d.getElementsByTagName(s)[0];
    if (typeof LivereTower === 'function') { return; }
    j = d.createElement(s);
@@ -18,4 +301,4 @@
    j.async = true;
    e.parentNode.insertBefore(j, e);
 })(document, 'script');
-</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://agrh.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a><span class="category-list-count">4</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/CH/" style="font-size: 15px;">CH</a> <a href="/tags/VASP/" style="font-size: 15px;">VASP</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/27/incar/">VASP的INCAR参数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/25/linux/">Linux下常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/markdown/">Markdown入门</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://fandong.xyz/" title="About me" target="_blank">About me</a><ul></ul><a href="https://www.researchgate.net/profile/Dong_Fan5" title="Researchgate" target="_blank">Researchgate</a><ul></ul><a href="https://pubs.acs.org/" title="ACS" target="_blank">ACS</a><ul></ul><a href="https://journals.aps.org/" title="APS" target="_blank">APS</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Dong Fan's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="http://fandong.xyz"> Dong Fan.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://agrh.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Travelling/">Travelling</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a><span class="category-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/EN/" style="font-size: 15px;">EN</a> <a href="/tags/VASP/" style="font-size: 15px;">VASP</a> <a href="/tags/CH/" style="font-size: 15px;">CH</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Scripts/" style="font-size: 15px;">Scripts</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/scripts/">Some useful scripts</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/28/band-diamond/">Calculate the band structure and density of states of diamond with the VASP code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/27/incar/">INCAR parameter of VASP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/vasp-tutorial-1/">VASP输入出输出文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/25/linux/">Linux下常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/24/markdown/">Markdown入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/21/introduction/">Computational Materials Science for Innovation</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/14/reap/">Thailand and siem reap</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://fandong.xyz/" title="About me" target="_blank">About me</a><ul></ul><a href="https://www.researchgate.net/profile/Dong_Fan5" title="Researchgate" target="_blank">Researchgate</a><ul></ul><a href="https://pubs.acs.org/" title="ACS" target="_blank">ACS</a><ul></ul><a href="https://journals.aps.org/" title="APS" target="_blank">APS</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Dong Fan's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="http://fandong.xyz"> Dong Fan.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
