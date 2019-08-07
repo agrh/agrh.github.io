@@ -101,7 +101,7 @@
 <li><p>准备KPOINTS和POTCAR。<code>KPOINTS</code>参考图示，POTCAR直接将VASP提供的<code>PBE/C/POTCAR</code>文件拷到计算目录<br><img src="/2019/07/19/vasp-tutorial-1/kp.png" alt></p>
 </li>
 <li><p>准备计算脚本。不同集群计算脚本有所区别。以广州超算的系统为例，提交任务的文件(文件名<code>fd.sh</code>)内容为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>SBATCH -J VASP-relax</span><br><span class="line">yhrun -N 1 -n 24 -p work  vasp_std &gt; vasp.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">SBATCH -J VASP-relax</span></span><br><span class="line">yhrun -N 1 -n 24 -p work  vasp_std &gt; vasp.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>提交计算任务。终端输入：<code>yhbatch   -N 1  -p work   ./fd.sh</code></p>
 </li>
